@@ -1,36 +1,37 @@
-h1 {
-  color:blue;
-}
-
 #container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 #nodepartment {
   flex: 1;
   background-color: rgb(209, 209, 226);
-  height: 500px;
+  border-right: 4px solid black;
 }
 
 #Shoes {
   flex: 1;
   background-color: rgb(204, 216, 204);
+  border-right: 1px solid black;
 }
 
 #Clothing {
   flex: 1;
   background-color: rgb(228, 181, 216);
+  border-right: 1px solid black;
 }
 
 #Beauty {
   flex: 1;
   background-color: rgb(238, 216, 94);
+  border-right: 1px solid black;
 }
 
 #Office {
   flex: 1;
   background-color: rgb(197, 166, 233);
+  border-right: 1px solid black;
 }
 
 #Garden {

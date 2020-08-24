@@ -6,10 +6,9 @@ import Employees from './employees.js'
 
 const Departments = (props) => {
   const {id, name, employees} = props
-
   return (
     <div key = {id} id = {name}>
-      <b>{name}</b>
+      <h3>{name}</h3>
       {employees.map(employee => {return (
             <Employees id={employee.id} name = {employee.name} department = {employee.department} />
           )})}
