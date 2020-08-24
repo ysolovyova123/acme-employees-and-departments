@@ -1,0 +1,49 @@
+{
+  "name": "acme-employees-and-departments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "webpack",
+    "build:dev": "npm run build -- --watch --mode development",
+    "start:dev": "nodemon server --ignore dist/ --ignore src/ & npm run build:dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ysolovyova123/acme-employees-and-departments.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ysolovyova123/acme-employees-and-departments/issues"
+  },
+  "homepage": "https://github.com/ysolovyova123/acme-employees-and-departments#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/register": "^7.10.5",
+    "css-loader": "^4.2.1",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "fs": "0.0.1-security",
+    "net": "^1.0.2",
+    "pg": "^8.3.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.4",
+    "style-loader": "^1.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-react": "^7.10.4",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.1.0",
+    "nodemon": "^2.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
