@@ -1,6 +1,7 @@
-const axios = require('axios')
-import React from 'react'
+const axios = require('axios');
+import React from 'react';
 import ReactDOM from 'react-dom';
+import Departments from '../src/departments.js'
 
 class Main extends React.Component {
   constructor () {
@@ -26,7 +27,11 @@ class Main extends React.Component {
   render () {
     if (this.state.departments.length > 0 || this.state.employees.length > 0) {
       return (
-        <div>Data loaded</div>
+        <div id = "container">
+          {this.state.departments.map(department => {return (
+            <Departments id={department.id} name = {department.department} employees = {this.state.employees} />
+          )})}
+        </div>
       )
     }
     else {

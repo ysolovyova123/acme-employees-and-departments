@@ -13,32 +13,27 @@ h1 {
   height: 500px;
 }
 
-#department1 {
+#Shoes {
   flex: 1;
   background-color: rgb(204, 216, 204);
-  height: 500px;
 }
 
-#department2 {
+#Clothing {
   flex: 1;
   background-color: rgb(228, 181, 216);
-  height: 500px;
 }
 
-#department3 {
+#Beauty {
   flex: 1;
   background-color: rgb(238, 216, 94);
-  height: 500px;
 }
 
-#department4 {
+#Office {
   flex: 1;
   background-color: rgb(197, 166, 233);
-  height: 500px;
 }
 
-#department5 {
+#Garden {
   flex: 1;
   background-color: rgb(168, 224, 241);
-  height: 500px;
 }

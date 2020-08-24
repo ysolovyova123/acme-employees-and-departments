@@ -51,6 +51,20 @@ app.get('/api/employees', async(req,res,next) => {
   }
 })
 
+app.get('/api/employees/:deptid', async(req,res,next) => {
+  try {
+    const employees = await Employees.findAll({
+      where: {
+        department: req.params.deptid
+      }
+    });
+    res.json(employees);
+  }
+  catch(ex) {
+    next(ex);
+  }
+})
+
 // app.delete('api/employees/:id', async(req, res, next) => {
 //   try {
 //     const employee = await db.Employees.findByPk(req.params.id);
