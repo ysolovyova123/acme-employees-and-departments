@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Departments from '../src/departments.js'
@@ -10,6 +10,26 @@ class Main extends React.Component {
       departments: [],
       employees: []
     }
+    this.destroy = this.destroy.bind(this)
+    this.updateDepartment = this.updateDepartment.bind(this)
+  }
+
+  async destroy(id) {
+    await axios.delete(`api/employees/${id}`)
+    const response = await axios.get('api/employees')
+    const data = response.data
+    this.setState({
+      employees: data
+    })
+  }
+
+  async updateDepartment(id, newDepartment) {
+    await axios.put(`api/employees/${id}`,{department: newDepartment})
+    const response = await axios.get('api/employees')
+    const data = response.data
+    this.setState({
+      employees:data
+    })
   }
 
   async componentDidMount () {
@@ -29,7 +49,7 @@ class Main extends React.Component {
       return (
         <div id = "container">
           {this.state.departments.map(department => {return (
-            <Departments id={department.id} name = {department.department} employees = {this.state.employees} />
+            <Departments department = {department} employees = {this.state.employees} destroy = {this.destroy} updateDepartment = {this.updateDepartment}/>
           )})}
         </div>
       )

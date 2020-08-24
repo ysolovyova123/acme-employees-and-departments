@@ -5,7 +5,7 @@ const {db, Departments, Employees} = require('../db/index.js')
 // });
 const faker = require('faker');
 
-const departments = ['Garden','Office','Beauty','Clothing','Shoes']
+const departments = ['Garden','Office','Beauty','Clothing','Shoes','Unassigned']
 
 async function seedDatabase() {
   try {
@@ -17,15 +17,15 @@ async function seedDatabase() {
         {
         name: faker.name.firstName(),
         department: faker.random.number({
-          'min': 1,
-          'max': 5
+          'min': 2,
+          'max': 6
         })
         }
       ))
     };
 
     const departmentsSeeded = [];
-    while(departmentsSeeded.length < 5) {
+    while(departmentsSeeded.length < 6) {
       departmentsSeeded.push(Departments.create(
         {
           department: departments.pop()

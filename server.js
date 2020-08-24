@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const morgan = require('morgan');
+const morgan = require('morgan'); // tells you which route  is being hit
 const bodyParser = require('body-parser');
 const {db, Departments, Employees} = require('./db/index.js');
 const {seedDatabase} = require('./db/seed.js')
@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 // Logging middleware
 //app.use(morgan('dev'));
+//__dirname is global, shows you the path from your comp to here
 
 // Body parsing middleware
 app.use(bodyParser.json());
@@ -65,27 +66,27 @@ app.get('/api/employees/:deptid', async(req,res,next) => {
   }
 })
 
-// app.delete('api/employees/:id', async(req, res, next) => {
-//   try {
-//     const employee = await db.Employees.findByPk(req.params.id);
-//     await employee.destroy();
-//     res.sendStatus(204);
-//   }
-//   catch(ex) {
-//     next(ex);
-//   }
-// })
+app.delete('/api/employees/:id', async(req, res, next) => {
+  try {
+    const employee = await Employees.findByPk(req.params.id);
+    await employee.destroy();
+    res.sendStatus(204);
+  }
+  catch(ex) {
+    next(ex);
+  }
+})
 
-// app.put('api/employees/:id', async(req, res, next) => {
-//   try {
-//     const employee = await db.Employees.findByPk(req.params.id);
-//     await employee.update(req.body) // will need to be passed an object from axios
-//     res.send(employee);
-//   }
-//   catch(ex) {
-//     next(ex);
-//   }
-// })
+app.put('/api/employees/:id', async(req, res, next) => {
+  try {
+    const employee = await Employees.findByPk(req.params.id);
+    await employee.update(req.body) // will need to be passed an object from axios
+    res.send(employee);
+  }
+  catch(ex) {
+    next(ex);
+  }
+})
 
 async function startServer() {
   try {

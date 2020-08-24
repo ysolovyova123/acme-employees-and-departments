@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 
 
 const Employees = (props) => {
-  const {id, name, department} = props
+  const {id, name, destroy, updateDepartment} = props
+  const noDepartment = 1
   return (
-    <div>
+    <div key = {id}>
       <h4>{name}</h4>
-      <button>Delete Employee</button>
-      <button>Remove From Dept.</button>
+      <button onClick={() => destroy(id)}>Delete Employee</button>
+      <button onClick={() => updateDepartment(id,noDepartment)}>Remove From Dept.</button>
     </div>
   )
 }
