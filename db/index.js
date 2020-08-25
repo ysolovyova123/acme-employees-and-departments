@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
-const db = new Sequelize('postgres://localhost/acme', {
+const connectionURL = process.env.DATABASE_URL || 'postgres://localhost/acme'
+const db = new Sequelize(connectionURL, {
   logging: false,
 });
 const faker = require('faker');

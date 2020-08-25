@@ -34,7 +34,9 @@ app.get('/style.css', async(req, res, next) => {
 
 app.get('/api/departments', async(req,res,next) => {
   try {
-    const departments = await Departments.findAll();
+    const departments = await Departments.findAll({
+      order: [['id','asc' ]]
+    });
     res.json(departments);
   }
   catch(ex) {
